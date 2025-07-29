@@ -13,7 +13,7 @@ import lombok.Data;
 @Table(name = "perfil")
 public class Perfil {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
     private String nome;

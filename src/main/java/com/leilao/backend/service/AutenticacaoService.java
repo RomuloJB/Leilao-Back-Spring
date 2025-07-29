@@ -6,7 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import com.leilao.backend.model.PessoaRequestDTO;
+import com.leilao.backend.dto.PessoaRequestDTO;
 import com.leilao.backend.security.JwtService;
 
 @Service
@@ -20,10 +20,8 @@ public class AutenticacaoService {
 
     public String autenticar(PessoaRequestDTO pessoa) {
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(pessoa.getEmail(), pessoa.getPassword())
-        );
+                new UsernamePasswordAuthenticationToken(pessoa.getEmail(), pessoa.getSenha()));
 
         return jwtService.generateToken(authentication.getName());
     }
 }
-
