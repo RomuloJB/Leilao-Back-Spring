@@ -1,6 +1,5 @@
 package com.leilao.backend.controller;
 
-import org.hibernate.annotations.SourceType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class GerarSenha {

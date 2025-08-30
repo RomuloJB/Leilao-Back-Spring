@@ -16,17 +16,15 @@ public class AuthPessoaProvider {
     @Autowired
     private PessoaRepository userRepository;
 
-   
     public Pessoa getUsuarioAutenticado() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username;        
+        String username;
 
         if (principal instanceof UserDetails) {
             username = ((UserDetails) principal).getUsername();
             System.out.println(username);
         } else {
             username = principal.toString();
-            System.out.println("AAA "+username);
         }
 
         return userRepository.findByEmail(username)

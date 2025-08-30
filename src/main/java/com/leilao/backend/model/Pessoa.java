@@ -22,7 +22,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 @Entity
 @Data
@@ -40,6 +42,7 @@ public class Pessoa implements UserDetails {
     private String senha;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Setter(value = AccessLevel.NONE)
     private List<PessoaPerfil> pessoaPerfil;
 
     public void setPessoaPerfil(List<PessoaPerfil> pessoaPerfil) {
@@ -50,6 +53,7 @@ public class Pessoa implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return pessoaPerfil.stream().map(user -> new SimpleGrantedAuthority(user.getPerfil().getNome()))
                 .collect(Collectors.toList());
@@ -64,5 +68,4 @@ public class Pessoa implements UserDetails {
     public String getUsername() {
         return email;
     }
-
 }

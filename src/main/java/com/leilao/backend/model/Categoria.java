@@ -1,12 +1,8 @@
 package com.leilao.backend.model;
 
-import io.micrometer.common.lang.Nullable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity
@@ -17,9 +13,14 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank(message = "{validation.name.notblank}")
+    @NotBlank(message = "Nome é obrigatório")
+    @Size(min = 2, max = 50, message = "Nome deve ter entre 2 e 50 caracteres")
     private String nome;
 
-    @Nullable
+    @Size(max = 255, message = "Observação deve ter no máximo 255 caracteres")
     private String observacao;
+
+    @ManyToOne
+    @JoinColumn(name = "criador_id", nullable = false)
+    private Pessoa criador;
 }

@@ -15,9 +15,10 @@ import lombok.Data;
 @Table(name = "pessoa_perfil")
 @Data
 public class PessoaPerfil {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_perfil")
