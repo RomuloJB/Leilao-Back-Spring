@@ -1,4 +1,4 @@
-package com.leilao.backend.model;
+package com.leilao.backend.enums;
 
 public enum TipoPerfil {
     ADMIN,
