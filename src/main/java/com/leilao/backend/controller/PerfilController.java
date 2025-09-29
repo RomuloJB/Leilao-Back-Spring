@@ -1,7 +1,5 @@
 package com.leilao.backend.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +17,6 @@ import com.leilao.backend.model.Perfil;
 import com.leilao.backend.service.PerfilService;
 
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/perfil")
@@ -34,7 +31,7 @@ public class PerfilController {
         return ResponseEntity.ok(perfilService.buscarTodos(pageable));
     }
 
-    @PostMapping
+    @PostMapping("/cadastrar-perfil")
     public ResponseEntity<Perfil> inserir(@Valid @RequestBody Perfil perfil) {
         return ResponseEntity.ok(perfilService.inserir(perfil));
     }
