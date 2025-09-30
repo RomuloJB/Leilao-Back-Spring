@@ -1,4 +1,5 @@
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\BackendApplication.java
+C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\config\DataInitializer.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\controller\AutenticacaoController.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\controller\CategoriaController.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\controller\FeedbackController.java
@@ -35,6 +36,7 @@ C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\rep
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\repository\LeilaoRepository.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\repository\PagamentoRepository.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\repository\PerfilRepository.java
+C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\repository\PessoaPerfilRepository.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\repository\PessoaRepository.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\security\AuthPessoaProvider.java
 C:\Users\Aluno\Downloads\Leilao-Back-Spring\src\main\java\com\leilao\backend\security\ConfiguracaoSeguranca.java
