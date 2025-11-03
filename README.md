@@ -85,3 +85,34 @@ http://localhost:8080/pessoa
 mvn install
 
 thymeleaf: cria emails personalizados
+
+#### DNS – Domain Name System
+
+Os seres humanos acessam informações on-line por meio de nomes de domínio, como nytimes.com ou espn.com.
+Os navegadores, porém, utilizam endereços de Protocolo de Internet (IP) para localizar e se comunicar com os servidores.
+O DNS (Domain Name System) é o sistema responsável por traduzir nomes de domínio em endereços IP correspondentes, permitindo que os navegadores possam localizar e carregar corretamente os recursos na internet.
+
+#### Como uma requisição na internet funciona
+
+Quando um cliente (por exemplo, um navegador) busca um site, ele faz uma requisição ao servidor.
+Essa requisição normalmente utiliza o protocolo TCP (Transmission Control Protocol), que estabelece uma conexão confiável entre cliente e servidor antes da troca de dados.
+O processo de estabelecimento da conexão TCP é conhecido como Three-Way Handshake:
+O cliente envia um pacote com a flag SYN (synchronize).
+O servidor responde com um SYN-ACK (synchronize + acknowledgment).
+O cliente envia um ACK final confirmando o recebimento — e a conexão é estabelecida.
+Após isso, ocorre a transferência de dados (por exemplo, o carregamento da página).
+
+Observação:
+O TCP garante que todos os pacotes sejam entregues e na ordem correta, o que é importante para aplicações como navegação web, e-mails e transações.
+Já para aplicações em tempo real, como streaming de vídeo, jogos online ou chamadas de voz, utiliza-se o UDP (User Datagram Protocol).
+Esse protocolo não garante a entrega nem a ordem dos pacotes, mas é mais rápido e eficiente, ideal para situações onde perder um pequeno pacote é menos grave do que causar atrasos.
+
+#### WebSocket
+
+Se tentássemos criar um chat em tempo real (como o WhatsApp Web) utilizando apenas requisições HTTP, precisaríamos usar requisições periódicas (polling) ou long-polling para verificar se há novas mensagens — o que é ineficiente.
+O WebSocket, por outro lado, foi criado justamente para esse tipo de comunicação bidirecional e em tempo real.
+O funcionamento é assim:
+O cliente inicialmente faz uma requisição HTTP normal para o servidor, pedindo a atualização do protocolo para WebSocket (handshake HTTP → WebSocket).
+Se o servidor aceitar, a conexão é atualizada para o protocolo WebSocket.
+A partir daí, a comunicação é full-duplex — ou seja, cliente e servidor podem enviar e receber mensagens a qualquer momento.
+Isso permite, por exemplo, que o servidor envie mensagens novas a todos os clientes conectados a um mesmo tópico ou sala (como um chat do WhatsApp), sem precisar que o cliente fique pedindo novas informações a todo momento.
