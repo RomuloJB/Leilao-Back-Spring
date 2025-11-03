@@ -11,7 +11,10 @@ import com.leilao.backend.exception.NaoEncontradoExcecao;
 import com.leilao.backend.model.Perfil;
 import com.leilao.backend.repository.PerfilRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class PerfilService {
     @Autowired
     private PerfilRepository perfilRepository;
@@ -35,6 +38,8 @@ public class PerfilService {
     }
 
     public void excluir(Long id) {
+        log.info("Deletando perfil com ID: {}", id);
+        log.warn("Atenção: Ao excluir um perfil, você não poderá acessá-lo novamente.");
         Perfil perfilBanco = buscarPorId(id);
         perfilRepository.delete(perfilBanco);
     }

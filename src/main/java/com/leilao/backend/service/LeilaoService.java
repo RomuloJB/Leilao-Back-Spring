@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 @Service
+@Slf4j
 public class LeilaoService {
 
     @Autowired
@@ -46,6 +49,8 @@ public class LeilaoService {
     }
 
     public void deletar(Long id) {
+        log.info("Deletando leilao com ID: {}", id);
+        log.warn("Atenção: Ao excluir um leilao, você não poderá acessá-lo novamente.");
         Leilao leilao = buscarPorId(id);
         leilaoRepository.delete(leilao);
     }

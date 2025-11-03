@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 @Service
+@Slf4j
 public class ImagemService {
 
     @Autowired
@@ -36,6 +39,8 @@ public class ImagemService {
     }
 
     public void deletar(Long id) {
+        log.info("Deletando imagem com ID: {}", id);
+        log.warn("Atenção: Ao excluir uma imagem, você não poderá acessá-la novamente.");
         Imagem imagem = buscarPorId(id);
         imagemRepository.delete(imagem);
     }

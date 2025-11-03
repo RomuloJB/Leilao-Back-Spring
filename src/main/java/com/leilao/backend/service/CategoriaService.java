@@ -7,9 +7,12 @@ import com.leilao.backend.model.Categoria;
 import com.leilao.backend.repository.CategoriaRepository;
 
 import jakarta.persistence.EntityNotFoundException;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 @Service
+@Slf4j
 public class CategoriaService {
 
     @Autowired
@@ -37,6 +40,8 @@ public class CategoriaService {
     }
 
     public void deletar(Long id) {
+        log.info("Deletando categoria com ID: {}", id);
+        log.warn("Atenção: Ao excluir uma categoria, você não poderá acessá-la novamente.");
         Categoria categoria = buscarPorId(id);
         categoriaRepository.delete(categoria);
     }

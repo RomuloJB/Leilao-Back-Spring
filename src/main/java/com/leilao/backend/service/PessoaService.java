@@ -20,7 +20,10 @@ import com.leilao.backend.exception.NaoEncontradoExcecao;
 import com.leilao.backend.model.Pessoa;
 import com.leilao.backend.repository.PessoaRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class PessoaService implements UserDetailsService {
     @Autowired
     private PessoaRepository pessoaRepository;
@@ -54,6 +57,8 @@ public class PessoaService implements UserDetailsService {
     }
 
     public void excluir(Long id) {
+        log.info("Deletando pessoa com ID: {}", id);
+        log.warn("Atenção: Ao excluir uma pessoa, você não poderá acessá-la novamente.");
         Pessoa pessoaBanco = buscarPorId(id);
         pessoaRepository.delete(pessoaBanco);
     }
