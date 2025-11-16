@@ -1,4 +1,4 @@
-package com.leilao.backend.controller;
+/*package com.leilao.backend.controller;
 
 public class AuctionWebSocketController {
     
@@ -9,3 +9,4 @@ public class AuctionWebSocketController {
     //para cada leilao, salva o registro
 
 }
+*/
